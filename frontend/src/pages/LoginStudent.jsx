@@ -89,7 +89,7 @@ export default function LoginStudent() {
                   value={formData.classCode}
                   onChange={handleChange}
                   className="input pl-12 text-lg font-medium uppercase"
-                  placeholder="VD: 5A2024"
+                  placeholder="VD: 6A2024"
                   required
                   autoFocus
                 />
@@ -112,7 +112,7 @@ export default function LoginStudent() {
                   value={formData.studentCode}
                   onChange={handleChange}
                   className="input pl-12 text-lg font-medium uppercase"
-                  placeholder="VD: HS001"
+                  placeholder="VD: HS001-009"
                   required
                 />
               </div>
