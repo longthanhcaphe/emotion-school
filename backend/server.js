@@ -97,16 +97,23 @@ app.use((err, req, res, next) => {
   });
 });
 
+const keepAlive = require('./utils/keepAlive');
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`
-  ╔════════════════════════════════════════╗
-  ║  🎓 Emotion School API Server         ║
-  ║  ✓ Running on port ${PORT}              ║
-  ║  ✓ Environment: ${process.env.NODE_ENV}         ║
-  ║  ✓ URL: http://localhost:${PORT}         ║
-  ╚════════════════════════════════════════╝
+╔════════════════════════════════════════╗
+║  🎓 Emotion School API Server         ║
+║  ✓ Running on port ${PORT}              ║
+╚════════════════════════════════════════╝
   `);
+  
+  // Start keep-alive in production
+  if (process.env.NODE_ENV === 'production') {
+    keepAlive();
+    console.log('✓ Keep-alive service started');
+  }
 });
+
 
 module.exports = app;
